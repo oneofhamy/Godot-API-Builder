@@ -1,0 +1,373 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvkxq8w7n4qgh"]
+
+[ext_resource type="Script" path="res://addons/script_analyzer/ui/ui_panel.gd" id="1_1rpui"]
+
+[node name="ScriptAnalyzer" type="Control"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1rpui")
+
+[node name="ToggleContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ToggleHeader" type="HBoxContainer" parent="ToggleContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="toggle_button" type="Button" parent="ToggleContainer/ToggleHeader"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "🛠"
+
+[node name="HeaderLabel" type="Label" parent="ToggleContainer/ToggleHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Analyzer"
+autowrap_mode = 2
+
+[node name="ExpandedContainer" type="Control" parent="ToggleContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ToggleContainer/ExpandedContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainContent" type="VBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSeparator" type="HSeparator" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent"]
+layout_mode = 2
+
+[node name="ModeGroup" type="VBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent"]
+layout_mode = 2
+
+[node name="ModeLabel" type="Label" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/ModeGroup"]
+layout_mode = 2
+text = "🎯 Analysis Mode:"
+
+[node name="mode_option" type="OptionButton" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/ModeGroup"]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Single File"
+popup/item_0/id = 0
+popup/item_1/text = "Directory"
+popup/item_1/id = 1
+popup/item_2/text = "Single File"
+popup/item_2/id = 2
+popup/item_3/text = "Directory"
+popup/item_3/id = 3
+
+[node name="HSeparator2" type="HSeparator" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent"]
+layout_mode = 2
+
+[node name="TargetSelectionContainer" type="VBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent"]
+layout_mode = 2
+
+[node name="SingleFileGroup" type="VBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer"]
+layout_mode = 2
+
+[node name="FileSelectionLabel" type="Label" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer/SingleFileGroup"]
+layout_mode = 2
+text = "📁 Script:"
+
+[node name="FileSelection" type="HBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer/SingleFileGroup"]
+layout_mode = 2
+
+[node name="script_path_line_edit" type="LineEdit" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer/SingleFileGroup/FileSelection"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Select script..."
+editable = false
+
+[node name="browse_button" type="Button" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer/SingleFileGroup/FileSelection"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "📁"
+
+[node name="DirectoryGroup" type="VBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer"]
+visible = false
+layout_mode = 2
+
+[node name="DirectorySelectionLabel" type="Label" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer/DirectoryGroup"]
+layout_mode = 2
+text = "📂 Directory:"
+
+[node name="DirectorySelection" type="HBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer/DirectoryGroup"]
+layout_mode = 2
+
+[node name="directory_path_line_edit" type="LineEdit" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer/DirectoryGroup/DirectorySelection"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Select directory..."
+editable = false
+
+[node name="browse_dir_button" type="Button" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer/DirectoryGroup/DirectorySelection"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "📂"
+
+[node name="DirectoryOptions" type="VBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer/DirectoryGroup"]
+layout_mode = 2
+
+[node name="include_subdirs_check" type="CheckBox" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer/DirectoryGroup/DirectoryOptions"]
+layout_mode = 2
+button_pressed = true
+text = "Include subdirectories"
+
+[node name="FilterContainer" type="HBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer/DirectoryGroup/DirectoryOptions"]
+layout_mode = 2
+
+[node name="FilterLabel" type="Label" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer/DirectoryGroup/DirectoryOptions/FilterContainer"]
+layout_mode = 2
+text = "Filter:"
+
+[node name="file_filter_line_edit" type="LineEdit" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer/DirectoryGroup/DirectoryOptions/FilterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "*.gd"
+placeholder_text = "*.gd"
+
+[node name="RefreshContainer" type="HBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer"]
+layout_mode = 2
+
+[node name="refresh_button" type="Button" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/TargetSelectionContainer/RefreshContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+disabled = true
+text = "🔄"
+
+[node name="HSeparator3" type="HSeparator" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent"]
+layout_mode = 2
+
+[node name="ProgressGroup" type="VBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent"]
+layout_mode = 2
+
+[node name="progress_label" type="Label" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/ProgressGroup"]
+visible = false
+layout_mode = 2
+text = "Processing..."
+
+[node name="progress_bar" type="ProgressBar" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/ProgressGroup"]
+visible = false
+layout_mode = 2
+
+[node name="HSeparator4" type="HSeparator" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent"]
+layout_mode = 2
+
+[node name="OptionsGroup" type="VBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent"]
+layout_mode = 2
+
+[node name="OptionsLabel" type="Label" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/OptionsGroup"]
+layout_mode = 2
+text = "⚙️ Options:"
+
+[node name="FeatureCheckboxes" type="GridContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/OptionsGroup"]
+layout_mode = 2
+columns = 2
+
+[node name="class_name_check" type="CheckBox" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/OptionsGroup/FeatureCheckboxes"]
+layout_mode = 2
+button_pressed = true
+text = "Class Name"
+
+[node name="inheritance_check" type="CheckBox" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/OptionsGroup/FeatureCheckboxes"]
+layout_mode = 2
+button_pressed = true
+text = "Inheritance"
+
+[node name="methods_check" type="CheckBox" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/OptionsGroup/FeatureCheckboxes"]
+layout_mode = 2
+button_pressed = true
+text = "Methods"
+
+[node name="properties_check" type="CheckBox" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/OptionsGroup/FeatureCheckboxes"]
+layout_mode = 2
+button_pressed = true
+text = "Properties"
+
+[node name="constants_check" type="CheckBox" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/OptionsGroup/FeatureCheckboxes"]
+layout_mode = 2
+button_pressed = true
+text = "Constants"
+
+[node name="signals_check" type="CheckBox" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/OptionsGroup/FeatureCheckboxes"]
+layout_mode = 2
+button_pressed = true
+text = "Signals"
+
+[node name="groups_check" type="CheckBox" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/OptionsGroup/FeatureCheckboxes"]
+layout_mode = 2
+button_pressed = true
+text = "Groups"
+
+[node name="cross_script_calls_check" type="CheckBox" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/OptionsGroup/FeatureCheckboxes"]
+layout_mode = 2
+button_pressed = true
+text = "Cross-Script"
+
+[node name="node_tree_check" type="CheckBox" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/OptionsGroup/FeatureCheckboxes"]
+layout_mode = 2
+button_pressed = true
+text = "Node Tree"
+
+[node name="connections_check" type="CheckBox" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/OptionsGroup/FeatureCheckboxes"]
+layout_mode = 2
+button_pressed = true
+text = "Connections"
+
+[node name="external_resources_check" type="CheckBox" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/OptionsGroup/FeatureCheckboxes"]
+layout_mode = 2
+button_pressed = true
+text = "Resources"
+
+[node name="object_method_calls_check" type="CheckBox" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/OptionsGroup/FeatureCheckboxes"]
+layout_mode = 2
+button_pressed = true
+text = "Method Calls"
+
+[node name="builtin_overrides_check" type="CheckBox" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/OptionsGroup/FeatureCheckboxes"]
+layout_mode = 2
+button_pressed = true
+text = "Built-in"
+
+[node name="usage_example_check" type="CheckBox" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/OptionsGroup/FeatureCheckboxes"]
+layout_mode = 2
+button_pressed = true
+text = "Usage Example"
+
+[node name="HSeparator5" type="HSeparator" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent"]
+layout_mode = 2
+
+[node name="ControlsGroup" type="VBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent"]
+layout_mode = 2
+
+[node name="PresetsFormat" type="HBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/ControlsGroup"]
+layout_mode = 2
+
+[node name="PresetContainer" type="VBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/ControlsGroup/PresetsFormat"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PresetLabel" type="Label" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/ControlsGroup/PresetsFormat/PresetContainer"]
+layout_mode = 2
+text = "Preset:"
+
+[node name="preset_option" type="OptionButton" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/ControlsGroup/PresetsFormat/PresetContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 12
+popup/item_0/text = "All"
+popup/item_0/id = 0
+popup/item_1/text = "Dependency Complete"
+popup/item_1/id = 1
+popup/item_2/text = "Human Integration"
+popup/item_2/id = 2
+popup/item_3/text = "Docstring Only"
+popup/item_3/id = 3
+popup/item_4/text = "Minimal Summary"
+popup/item_4/id = 4
+popup/item_5/text = "Custom"
+popup/item_5/id = 5
+popup/item_6/text = "AI Integration"
+popup/item_6/id = 6
+popup/item_7/text = "Dependency Complete"
+popup/item_7/id = 7
+popup/item_8/text = "Human Integration"
+popup/item_8/id = 8
+popup/item_9/text = "Docstring Only"
+popup/item_9/id = 9
+popup/item_10/text = "Minimal Summary"
+popup/item_10/id = 10
+popup/item_11/text = "Custom"
+popup/item_11/id = 11
+
+[node name="FormatContainer" type="VBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/ControlsGroup/PresetsFormat"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FormatLabel" type="Label" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/ControlsGroup/PresetsFormat/FormatContainer"]
+layout_mode = 2
+text = "Format:"
+
+[node name="format_option" type="OptionButton" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/ControlsGroup/PresetsFormat/FormatContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 8
+popup/item_0/text = "Markdown"
+popup/item_0/id = 0
+popup/item_1/text = "JSON"
+popup/item_1/id = 1
+popup/item_2/text = "YAML"
+popup/item_2/id = 2
+popup/item_3/text = "Plain Text"
+popup/item_3/id = 3
+popup/item_4/text = "Markdown"
+popup/item_4/id = 4
+popup/item_5/text = "JSON"
+popup/item_5/id = 5
+popup/item_6/text = "YAML"
+popup/item_6/id = 6
+popup/item_7/text = "Plain Text"
+popup/item_7/id = 7
+
+[node name="ActionButtons" type="HBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/ControlsGroup"]
+layout_mode = 2
+
+[node name="analyze_button" type="Button" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/ControlsGroup/ActionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "🔍 Select Script"
+
+[node name="export_button" type="Button" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/ControlsGroup/ActionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "💾 Export"
+
+[node name="copy_button" type="Button" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/ControlsGroup/ActionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "📋 Copy"
+
+[node name="HSeparator6" type="HSeparator" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent"]
+layout_mode = 2
+
+[node name="PreviewGroup" type="VBoxContainer" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PreviewLabel" type="Label" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/PreviewGroup"]
+layout_mode = 2
+text = "📄 Preview:"
+
+[node name="output_text" type="TextEdit" parent="ToggleContainer/ExpandedContainer/ScrollContainer/MainContent/PreviewGroup"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "Analysis results..."
+editable = false
+wrap_mode = 1
