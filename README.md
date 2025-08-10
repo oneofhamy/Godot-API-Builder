@@ -1,4 +1,4 @@
-# Enhanced Script Analyzer for Godot
+# Godot API Doc Builder
 
 [![Godot Version](https://img.shields.io/badge/Godot-4.0+-blue.svg)](https://godotengine.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
