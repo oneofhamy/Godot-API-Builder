@@ -36,7 +36,7 @@ const MANIFEST := {
 		"_enter_tree",
 		"_exit_tree"
 	],
-	"api_version": "script-analyzer-v2.1.0",
+	"api_version": "api-builder-v1.1.0",
 	"last_updated": "2025-08-09"
 }
 
