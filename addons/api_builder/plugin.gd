@@ -1,12 +1,12 @@
 @tool
 extends EditorPlugin
 
-const VERSION := "2.1.0.05"
+const VERSION := "1.1.0.05"
 const MANIFEST := {
 	"script_name": "plugin.gd",
-	"script_path": "res://addons/script_analyzer/plugin.gd", 
-	"version": "2.1.0",
-	"description": "Enhanced Script Analyzer plugin for Godot Editor. Provides comprehensive script analysis capabilities with directory support, architectural insights, and multiple output formats.",
+	"script_path": "res://addons/api_builder/plugin.gd", 
+	"version": "1.1.0",
+	"description": "Enhanced API builder plugin for Godot Editor. Provides comprehensive script analysis capabilities with directory support, architectural insights, and multiple output formats.",
 	"required_dependencies": [
 		"UIPanel",
 		"ScriptAnalyzer",
