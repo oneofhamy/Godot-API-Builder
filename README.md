@@ -357,7 +357,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ## Changelog
 
-### v2.1.0 (Current)
+### v1.1.0 (Current)
 - **NEW**: Comprehensive directory analysis
 - **NEW**: Architectural pattern detection
 - **NEW**: Real-time progress tracking
