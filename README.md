@@ -2,7 +2,7 @@
 
 [![Godot Version](https://img.shields.io/badge/Godot-4.0+-blue.svg)](https://godotengine.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0.0-orange.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-1.1.0-orange.svg)](CHANGELOG.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 Analyze single files or entire directories with architectural pattern detection, dependency mapping, and quality metrics.
